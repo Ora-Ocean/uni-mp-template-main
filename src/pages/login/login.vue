@@ -9,6 +9,7 @@ onLoad(async () => {
 })
 
 // 授权登录
+
 const sureToLogin = async () => {
   uni.showLoading({ title: '正在登录', mask: true })
   const { result } = await postLoginWxMinAPI({ code })
