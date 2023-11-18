@@ -11,13 +11,16 @@
       @scrolltolower="onScrolltolower"
       class="scroll-view"
     >
-      <wSwiper :list="bannerList"></wSwiper>
-      <!-- 商品分类 -->
-      <CategoryPanel :list="categoryList" />
-      <!-- 热门推荐 -->
-      <HotPannel :list="hotList" />
-      <!-- 猜你喜欢 -->
-      <Guess ref="guessRef" />
+      <PageSkeleton v-if="isLoading" />
+      <template v-else
+        ><wSwiper :list="bannerList"></wSwiper>
+        <!-- 商品分类 -->
+        <CategoryPanel :list="categoryList" />
+        <!-- 热门推荐 -->
+        <HotPannel :list="hotList" />
+        <!-- 猜你喜欢 -->
+        <Guess ref="guessRef"
+      /></template>
     </scroll-view>
   </view>
 </template>
@@ -28,6 +31,7 @@ import CategoryPanel from './components/CategoryPanel'
 import HotPannel from './components/HotPannel'
 import type { GuessInstance } from '@/types/components'
 import Guess from '@/components/Guess/Guess'
+import PageSke from './components/PageSkeleton'
 // 获取轮播图
 const bannerList = ref<BannerItem[]>([])
 

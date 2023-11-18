@@ -1,5 +1,8 @@
 <script setup lang="ts">
 //
+defineProps<{
+  list: CategoryItem[]
+}>()
 </script>
 
 <template>
@@ -8,11 +11,11 @@
       class="category-item"
       hover-class="none"
       url="/pages/index/index"
-      v-for="item in 10"
-      :key="item"
+      v-for="item in list"
+      :key="item.id"
     >
-      <image class="icon" src="@/static/images/car.png"></image>
-      <text class="text">居家</text>
+      <image class="icon" :src="item.icon"></image>
+      <text class="text">{{ item.name }}</text>
     </navigator>
   </view>
 </template>
