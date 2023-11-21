@@ -1,7 +1,6 @@
-<!-- //购物车TabBar页面 -->
-
 <template>
   <CartMain safeAreaInstBottom></CartMain>
+  <div class="cart2">cart2</div>
 </template>
 
 <script lang="ts" setup>
