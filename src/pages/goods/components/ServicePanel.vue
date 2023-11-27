@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// const props = defineProps({})
 const emit = defineEmits<{
   (event: 'close'): void
 }>()
@@ -38,6 +39,7 @@ const emit = defineEmits<{
   position: relative;
   background-color: #fff;
 }
+
 .title {
   line-height: 1;
   padding: 40rpx 0;
@@ -47,22 +49,27 @@ const emit = defineEmits<{
   border-bottom: 1rpx solid #ddd;
   color: #444;
 }
+
 .close {
   position: absolute;
   right: 24rpx;
   top: 24rpx;
 }
+
 .content {
   padding: 20rpx 20rpx 100rpx 20rpx;
+
   .item {
     margin-top: 20rpx;
   }
+
   .dt {
     margin-bottom: 10rpx;
     font-size: 28rpx;
     color: #333;
     font-weight: 500;
     position: relative;
+
     &::before {
       content: '';
       width: 10rpx;
@@ -75,6 +82,7 @@ const emit = defineEmits<{
       left: -20rpx;
     }
   }
+
   .dd {
     line-height: 1.6;
     font-size: 26rpx;

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-const emit = defineEmits<{
-  (event: 'close'): void
-}>()
+//
 </script>
 
 <template>
   <view class="address-panel">
     <!-- 关闭按钮 -->
-    <text class="close icon-close" @tap="emit('close')"></text>
+    <text class="close icon-close"></text>
     <!-- 标题 -->
     <view class="title">配送至</view>
     <!-- 内容 -->
@@ -42,6 +40,7 @@ const emit = defineEmits<{
   position: relative;
   background-color: #fff;
 }
+
 .title {
   line-height: 1;
   padding: 40rpx 0;
@@ -51,11 +50,13 @@ const emit = defineEmits<{
   border-bottom: 1rpx solid #ddd;
   color: #444;
 }
+
 .close {
   position: absolute;
   right: 24rpx;
   top: 24rpx;
 }
+
 .content {
   min-height: 300rpx;
   max-height: 540rpx;
@@ -93,12 +94,14 @@ const emit = defineEmits<{
     color: #666;
   }
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
   padding: 20rpx 0 40rpx;
   font-size: 28rpx;
   color: #444;
+
   .button {
     flex: 1;
     height: 72rpx;
@@ -108,10 +111,12 @@ const emit = defineEmits<{
     color: #fff;
     border-radius: 72rpx;
   }
+
   .primary {
     color: #fff;
     background-color: #27ba9b;
   }
+
   .secondary {
     background-color: #ffa868;
   }

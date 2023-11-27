@@ -7,20 +7,33 @@ const getMemberAddressData = async () => {
   const res = await getMemberAddressAPI()
   addressList.value = res.result
 }
+
 // 初始化调用(页面显示)
 onShow(() => {
   getMemberAddressData()
 })
-const onDeleteAddress = async (id: number) => {
+
+//删除收货地址
+const onDeleteAddress = (id: string) => {
   uni.showModal({
     content: '删除地址?',
     success: async (res) => {
       if (res.confirm) {
-        const res = await deleteMemberAddressByIdAPI(id)
+        //根据id删除收获地址
+        await deleteMemberAddressByIdAPI(id)
+        //重新获取收货地址列表
         getMemberAddressData()
       }
     }
   })
+}
+
+//修改收货地址
+const onChangeAddress = (item: AddressItem) => {
+  //修改选中收货地址
+  const addressStore = useAddressStore()
+  addressStore.changeSelectedAddress(item)
+  uni.navigateBack()
 }
 </script>
 
@@ -32,7 +45,7 @@ const onDeleteAddress = async (id: number) => {
         <uni-swipe-action class="address-list">
           <!-- 收货地址项 -->
           <uni-swipe-action-item class="item" v-for="item in addressList" :key="item.id">
-            <view class="item-content">
+            <view class="item-content" @tap="onChangeAddress(item)">
               <view class="user">
                 {{ item.receiver }}
                 <text class="contact">{{ item.contact }}</text>
@@ -48,12 +61,13 @@ const onDeleteAddress = async (id: number) => {
                 class="edit"
                 hover-class="none"
                 :url="`/pagesMember/address/address-form?id=${item.id}`"
+                @tap.stop="() => {}"
               >
                 修改
               </navigator>
             </view>
             <template #right>
-              <button class="delete-button" @click="onDeleteAddress(item.id)">删除</button>
+              <button class="delete-button" @tap="onDeleteAddress">删除</button>
             </template>
           </uni-swipe-action-item>
         </uni-swipe-action>

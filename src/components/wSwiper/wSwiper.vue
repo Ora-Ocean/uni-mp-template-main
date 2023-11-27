@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const activeIndex = ref(0)
-//当swiper下标发生变化时触发
+//当swiper下表发生变化时触发
 const onChange: UniHelper.SwiperOnChange = (ev) => {
   activeIndex.value = ev.detail.current
 }
-//定义props接收
 defineProps<{
   list: BannerItem[]
 }>()
@@ -15,7 +14,7 @@ defineProps<{
   <view class="carousel">
     <swiper :circular="true" :autoplay="false" :interval="3000" @change="onChange">
       <swiper-item v-for="item in list" :key="item.id">
-        <navigator url="/pages/index/index" hover-class="none" class="navigator">
+        <navigator url="item.hrefUrl" hover-class="none" class="navigator">
           <image mode="aspectFill" class="image" :src="item.imgUrl"></image>
         </navigator>
       </swiper-item>

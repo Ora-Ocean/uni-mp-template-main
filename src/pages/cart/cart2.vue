@@ -1,12 +1,12 @@
 <template>
-  <CartMain safeAreaInstBottom></CartMain>
-  <div class="cart2">cart2</div>
+  <CartMain safeAreaInsetBottom />
 </template>
 
-<script lang="ts" setup>
-import CartMain from './components/CartMain.vue'
+<script setup>
+import CartMain from './components/CartMain'
 </script>
-<style lang="scss">
+
+<style lang="scss" scoped>
 page {
   height: 100%;
 }

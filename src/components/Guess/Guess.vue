@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import { textVertexSize } from 'XrFrame/components/text/Text'
-
 // 分页参数
 const pageParams: Required<PageParams> = { page: 1, pageSize: 10 }
 // 猜你喜欢的列表
@@ -29,7 +27,8 @@ const getHomeGoodsGuessLikeData = async () => {
 onMounted(() => {
   getHomeGoodsGuessLikeData()
 })
-//重置数据
+
+// 重置数据
 const resetData = () => {
   pageParams.page = 1
   guessList.value = []
@@ -64,7 +63,6 @@ defineExpose({
   </view>
   <view class="loading-text"> {{ finish ? '没有更多数据~' : '正在加载...' }}</view>
 </template>
-
 <style lang="scss">
 :host {
   display: block;

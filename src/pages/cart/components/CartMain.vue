@@ -8,10 +8,10 @@ defineProps<{
   safeAreaInsetBottom?: boolean
 }>()
 
-// 获取屏幕边界到安全区域距离
+//获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
-//优化购物车列表状态
+//优化购物车列表状态，默认展示列表
 const showCartList = ref<boolean>(true)
 
 //修改商品数量

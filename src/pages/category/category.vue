@@ -185,7 +185,6 @@ page {
       color: #999;
     }
   }
-
   .more {
     &::after {
       font-family: 'erabbit' !important;

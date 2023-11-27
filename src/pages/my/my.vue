@@ -20,7 +20,7 @@ console.log('memberStore :>> ', memberStore.profile?.avatar)
       <!-- 情况1：已登录 -->
       <view class="flex h-120 px-36 text-white" v-if="memberStore.profile">
         <navigator url="/pagesMember/profile/profile" hover-class="none">
-          <image class="w-120 h-120 rounded-1" mode="aspectFill" :src="memberStore.profile?.avatar"></image>
+          <image class="w-120 h-120 rounded-1" mode="aspectFill" :src="memberStore.profile.avatar"></image>
         </navigator>
         <view class="flex flex-col justify-center leading-30 py-16 ml-20">
           <view class="max-w-350 mb-16 text-30rpx truncate">
@@ -86,9 +86,9 @@ console.log('memberStore :>> ', memberStore.profile?.avatar)
           {{ item.text }}
         </navigator>
         <!-- 客服 -->
-        <button class="icon-handset navigator p-0 m-0 bg-transparent leading-[inherit]" open-type="contact"
-          >售后</button
-        >
+        <button class="icon-handset navigator p-0 m-0 bg-transparent leading-[inherit]" open-type="contact">
+          售后
+        </button>
       </view>
     </view>
     <!-- 猜你喜欢 -->

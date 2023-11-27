@@ -1,5 +1,4 @@
 <script setup lang="ts">
-//
 defineProps<{
   list: CategoryItem[]
 }>()
@@ -10,7 +9,7 @@ defineProps<{
     <navigator
       class="category-item"
       hover-class="none"
-      url="/pages/index/index"
+      url="/src/pages/index/index"
       v-for="item in list"
       :key="item.id"
     >

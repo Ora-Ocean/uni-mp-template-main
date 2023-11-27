@@ -12,11 +12,14 @@ const form = ref({
   address: '', // 详细地址
   isDefault: 0 // 默认地址，1为是，0为否
 })
+
 const query = defineProps<{
   id?: string
 }>()
+
 // 动态设置标题    js  1==true nul ==false
 uni.setNavigationBarTitle({ title: query.id ? '修改地址' : '新建地址' })
+
 // 收集所在地区
 const onRegionChange: UniHelper.RegionPickerOnChange = (ev) => {
   // 省市区(前端展示)
@@ -27,10 +30,12 @@ const onRegionChange: UniHelper.RegionPickerOnChange = (ev) => {
   // 合并数据
   Object.assign(form.value, { provinceCode, cityCode, countyCode })
 }
+
 // 收集是否默认收货地址
 const onSwitchChange: UniHelper.SwitchOnChange = (ev) => {
   form.value.isDefault = ev.detail.value ? 1 : 0
 }
+
 // 定义校验规则
 const rules: UniHelper.UniFormsRules = {
   receiver: {
@@ -49,8 +54,10 @@ const rules: UniHelper.UniFormsRules = {
     rules: [{ required: true, errorMessage: '请填写详细地址' }]
   }
 }
+
 // 获取表单组件实例，用于调用表单方法
 const formRef = ref<UniHelper.UniFormsInstance>()
+
 // 提交表单
 const onSubmit = async () => {
   try {
@@ -63,6 +70,7 @@ const onSubmit = async () => {
       // 新建地址请求
       await postMemberAddressAPI(form.value)
     }
+
     // 成功提示
     uni.showToast({ icon: 'success', title: query.id ? '修改成功' : '添加成功' })
     // 返回上一页
@@ -73,12 +81,14 @@ const onSubmit = async () => {
     uni.showToast({ icon: 'error', title: '请填写完整信息' })
   }
 }
+
 // 获取收货地址详情数据
 const getMemberAddressByIdData = async () => {
   // 有 id 才调用接口
   if (query.id) {
     // 发送请求
     const { result } = await getMemberAddressByIdAPI(query.id)
+
     form.value.fullLocation =
       codeToText[result.provinceCode?.replace(/0+$/, '')] +
       ' ' +
@@ -89,6 +99,7 @@ const getMemberAddressByIdData = async () => {
     Object.assign(form.value, result)
   }
 }
+
 onLoad(() => {
   getMemberAddressByIdData()
 })
@@ -131,11 +142,13 @@ onLoad(() => {
 page {
   background-color: #f4f4f4;
 }
+
 .content {
   margin: 20rpx 20rpx 0;
   padding: 0 20rpx;
   border-radius: 10rpx;
   background-color: #fff;
+
   .form-item,
   .uni-forms-item {
     display: flex;
@@ -147,38 +160,47 @@ page {
     border-bottom: 1rpx solid #ddd;
     position: relative;
     margin-bottom: 0;
+
     // 调整 uni-forms 样式
     .uni-forms-item__content {
       display: flex;
     }
+
     .uni-forms-item__error {
       margin-left: 200rpx;
     }
+
     &:last-child {
       border: none;
     }
+
     .label {
       width: 200rpx;
       color: #333;
     }
+
     .input {
       flex: 1;
       display: block;
       height: 46rpx;
     }
+
     .switch {
       position: absolute;
       right: -20rpx;
       transform: scale(0.8);
     }
+
     .picker {
       flex: 1;
     }
+
     .placeholder {
       color: #808080;
     }
   }
 }
+
 .button {
   height: 80rpx;
   margin: 30rpx 20rpx;
