@@ -46,7 +46,7 @@
     {
       "path": "pages/hot/hot",
       "style": {
-        "navigationBarTitleText": "hot"
+        "navigationBarTitleText": "热门推荐"
       }
     },
     {
@@ -79,6 +79,12 @@
         "navigationBarTitleText": "购物车"
       }
     }
+    // {
+    //   "path": "pagesOrder/list/components/OrderList",
+    //   "style": {
+    //     "navigationBarTitleText": "OrderList"
+    //   }
+    // }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
@@ -142,13 +148,13 @@
         {
           "path": "address/address",
           "style": {
-            "navigationBarTitleText": "地址"
+            "navigationBarTitleText": "地址管理"
           }
         },
         {
           "path": "address/address-form",
           "style": {
-            "navigationBarTitleText": "新建地址"
+            "navigationBarTitleText": "编辑地址"
           }
         }
       ]

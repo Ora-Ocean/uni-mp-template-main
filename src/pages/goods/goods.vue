@@ -12,6 +12,10 @@ import type {
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
+const query = defineProps<{
+  id: string
+}>()
+
 //定义枚举，按钮模式
 enum SkuMode {
   Both = 1,
@@ -28,10 +32,6 @@ const openSkuPopup = (val: SkuMode) => {
   //修改按钮模式
   mode.value = val
 }
-
-const query = defineProps<{
-  id: string
-}>()
 
 // 获取商品详细信息
 const goods = ref<GoodsResult>()

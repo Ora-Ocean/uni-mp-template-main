@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import { codeToText } from '@/utils/element-china-area-data.mjs'
 
 //页面参数
